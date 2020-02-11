@@ -1,0 +1,117 @@
+
+    <body>
+      
+    <div class="card cardmain" style="width:700px;height:750px">
+        <form [formGroup]="UserForms"  (submit)="SubmitData()" style="margin: 10px;margin-top: 20px">
+            <h2 class="text-center"> Form</h2>
+            <div class="row">
+                <div class="col-md-8 custom">
+                   <input type="text" class="form-control" formControlName="firstname" placeholder="first name" [ngClass]="{'redcol':!UserForms.get('firstname').valid && UserForms.get('firstname').touched}">
+                   <span *ngIf="!UserForms.get('firstname').valid && UserForms.get('firstname').touched"><small>Enter your name</small></span>
+                    <!-- {{control.errors}} -->
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 custom">
+                    <input type="text" class="form-control" formControlName="lastname" placeholder="last name" [ngClass]="{'redcol':!UserForms.get('lastname').valid && UserForms.get('lastname').touched}">
+                    <span *ngIf="!UserForms.get('lastname').valid && UserForms.get('lastname').touched"><small>Enter your name</small></span>
+                    <!-- {{control.errors}} -->
+                  </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-8 custom">
+                    <!-- <label for="email">  Email</label> -->
+                    <input type="email" class="form-control" formControlName="email" placeholder="email" [ngClass]="{'redcol':!UserForms.get('email').valid && UserForms.get('email').touched}">
+                    <span *ngIf="!UserForms.get('email').valid && UserForms.get('email').touched"><small>Enter a valid email id</small></span>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="form-check">
+                        <label for="gender">Gender</label>
+                        <div class="col-sm-10">
+                            
+                            <div class="form-check">                       
+                              <input type="radio" class="form-check-input r1" formControlName="gender" value="male" name="gender">
+                              <label for="male">Male</label>
+                              <!-- <span *ngIf="!UserForms.get('gender').valid && UserForms.get('gender').touched" [ngStyle]="border:red"></span> -->
+                             </div>
+                            <div class="form-check">
+                              <input type="radio" class="form-check-input r1" formControlName="gender" value="female" name="gender">
+                              <!-- <span *ngIf="!UserForms.get('gender').valid && UserForms.get('gender').touched" [ngStyle]="border:red"></span> -->
+                              <label for="female">Female</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="address1">Address line 1</label>
+                    <input type="text" class="form-control" formControlName="address1" placeholder="house number" [ngClass]="{'redcol':!UserForms.get('address1').valid && UserForms.get('address1').touched}">
+                    <span *ngIf="!UserForms.get('address1').valid && UserForms.get('address1').touched">Enter your address</span>
+                  </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="address2">Address line 2</label>
+                    <input type="text" class="form-control" formControlName="address2" placeholder="street name" [ngClass]="{'redcol':!UserForms.get('address2').valid && UserForms.get('address2').touched}">
+                    <!-- <span *ngIf="!UserForms.get('address2').valid && UserForms.get('address2').touched" [ngStyle]="border:red"></span> -->
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" formControlName="city" id="inputCity" [ngClass]="{'redcol':!UserForms.get('city').valid && UserForms.get('city').touched}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control" formControlName="state" [ngClass]="{'redcol':!UserForms.get('state').valid && UserForms.get('state').touched}">
+                      <option selected value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Andra Pradesh">Andra Pradesh</option>
+                      <option value="Telungana">Telungana</option>
+                      <option value="Karnataka">Karnataka</option>
+                    </select>
+                  </div>
+                </div>
+                  <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip" formControlName="pin" [ngClass]="{'redcol':!UserForms.get('pin').valid && UserForms.get('pin').touched}">
+                  </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12 b1">
+                  
+                  <button type="submit" class="btn btn-primary" *ngIf="UserForms.valid">Submit</button>
+                </div>
+              </div>
+        </form>
+    </div>
+    <div class="card cardtable" style="width:2500px;height:700px">
+    <!-- {{data}}; -->
+
+        <table class="table">
+            <thead>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Gender</th>
+                <th>email</th>
+                <th>address1</th>
+                <th>address2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Pin</th>
+                <th></th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of data">
+                <td *ngFor="let k of key">{{obj[k]}}</td>
+              </tr>
+            </tbody>
+        </table>
+    
+    </div>
+    
+  </body>

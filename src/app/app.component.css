@@ -1,0 +1,29 @@
+body{
+    height: 100vh;
+    display: flex;
+    
+}
+.cardmain{
+    margin: 30px;
+    border-radius: 12px;
+    /* background-color: rgb(233, 216, 216); */
+}
+.cardtable{
+    margin:30px;
+    margin-left: 0px;
+    border-radius: 12px;
+}
+.b1{
+    display: flex;
+    justify-content: center;
+}
+.custom{
+    margin-top: 10px;
+}
+.greencol {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+.redcol{
+    border-left: 5px solid #a94442; /* red */
+  }
